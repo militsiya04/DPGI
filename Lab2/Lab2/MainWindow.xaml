@@ -8,7 +8,7 @@
         Title="TextEditor" Height="400" Width="600" MinHeight="210" MinWidth="320"
         BorderThickness="7 0 7 8" BorderBrush="Gainsboro">
 
-<Window.Resources>
+ <Window.Resources>
         <LinearGradientBrush x:Key="LinearPanelBrush">
             <GradientStop Color="Yellow" Offset="0"></GradientStop>
             <GradientStop Color="DodgerBlue" Offset="0.5"></GradientStop>
@@ -32,17 +32,18 @@
         <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"
                 Background="{StaticResource LinearPanelBrush}">
         </Border>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Height="75" Width="300" HorizontalAlignment="Left">
-            <Button ToolTip="Open">
+        <StackPanel FocusManager.IsFocusScope="True" Grid.Row="0" Orientation="Horizontal" Height="75" Width="300"
+                    HorizontalAlignment="Left">
+            <Button ToolTip="Open" Command="Open">
                 <Image Source="\Images\Open.png"></Image>
             </Button>
-            <Button ToolTip="Cut">
+            <Button ToolTip="Cut" Command="Cut">
                 <Image Source="\Images\Clear.png"></Image>
             </Button>
-            <Button ToolTip="Copy">
+            <Button ToolTip="Copy" Command="Copy">
                 <Image Source="\Images\Copy.png"></Image>
             </Button>
-            <Button ToolTip="Paste">
+            <Button ToolTip="Paste" Command="Paste">
                 <Image Source="\Images\Paste.png"></Image>
             </Button>
         </StackPanel>
@@ -54,9 +55,17 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBox Grid.Row="0" Margin="10"></TextBox>
+                <TextBox  TextWrapping="Wrap" AcceptsReturn="True" Name="InputTextBox" Grid.Row="0" Margin="10" VerticalScrollBarVisibility="Visible"
+                          FontSize="{Binding ElementName=FontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}">
+                </TextBox>
                 <DockPanel Grid.Row="1">
-                    <Button DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="15">OK</Button>
+                    <Label>Розмір шрифту</Label>
+                    <Slider Margin="4" MinWidth="100" Name="FontSlider" Maximum="100" Minimum="12"></Slider>
+
+                    <Button Command="Save" DockPanel.Dock="Bottom" VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center" Margin="15" Style="{x:Null}">
+                        OK
+                    </Button>
                 </DockPanel>
             </Grid>
         </Border>
