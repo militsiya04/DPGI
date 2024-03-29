@@ -7,4 +7,11 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Resource Include="Images\Clear.png" />
+      <Resource Include="Images\Copy.png" />
+      <Resource Include="Images\Open.png" />
+      <Resource Include="Images\Paste.png" />
+    </ItemGroup>
+
 </Project>
