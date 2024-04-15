@@ -5,8 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800"
+        Closing="MainWindow_OnClosing"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Foreground" Value="#20FC8F" />
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="Background" Value="#20FC8F" />
+            <Setter Property="Foreground" Value="#FF000000" />
+            <Setter Property="Focusable" Value="True" />
+        </Style>
+        <Style TargetType="Button" x:Key="ToolBarButtonStyle">
+            <Setter Property="Foreground" Value="#20FC8F"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#3F5E5A"/>
+            <Setter Property="Margin" Value="0 0 5 0"/>
+        </Style>
+    </Window.Resources>
 
-    </Grid>
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top" Background="#2D2D2A">
+            <Button Content="Create" Click="CreateButton_Click" ToolTip="Create" Style="{StaticResource ToolBarButtonStyle}"/>
+            <Button Content="Update" Click="UpdateButton_Click" ToolTip="Update" Style="{StaticResource ToolBarButtonStyle}"/>
+            <Button Content="Delete" Click="DeleteButton_Click" ToolTip="Delete" Style="{StaticResource ToolBarButtonStyle}"/>
+            <Button Content="Add" Click="ButtonBase_OnClick" ToolTip="Add" Style="{StaticResource ToolBarButtonStyle}"/>
+        </ToolBar>
+        <Grid Background="#2D2D2A" DataContext="{Binding ElementName=list, Path=SelectedItem}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ListBox Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     Margin="0,0,0,3"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     Name="list"
+                     ItemsSource="{Binding}"
+                     Background="#38423B"
+                     BorderThickness="0"
+                     Foreground="#20FC8F">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=name}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}">Article:</TextBlock>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="ArticleTextBox"
+                     Text="{Binding Path=article, Mode=OneWay}"
+                     Style="{StaticResource TextBoxStyle}" />
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockStyle}">Name:</TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="NameTextBox"
+                     Text="{Binding Path=name, Mode=OneWay}"
+                     Style="{StaticResource TextBoxStyle}" />
+
+            <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource TextBlockStyle}">Unit of Measure:</TextBlock>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="UnitOfMeasureTextBox"
+                     Text="{Binding Path=unit_of_measure, Mode=OneWay}"
+                     Style="{StaticResource TextBoxStyle}" />
+
+            <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource TextBlockStyle}">Quantity:</TextBlock>
+            <TextBox Grid.Row="4" Grid.Column="1" Name="QuantityTextBox"
+                     Text="{Binding Path=quantity, Mode=OneWay}"
+                     Style="{StaticResource TextBoxStyle}" />
+            <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource TextBlockStyle}">Price:</TextBlock>
+            <TextBox Grid.Row="5" Grid.Column="1" Name="PriceTextBox"
+                     Text="{Binding Path=price, Mode=OneWay}"
+                     Style="{StaticResource TextBoxStyle}" />
+
+        </Grid>
+    </DockPanel>
+
 </Window>
