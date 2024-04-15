@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab2\\Lab2.csproj": {}
+    "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab4\\Lab4.csproj": {}
   },
   "projects": {
-    "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab2\\Lab2.csproj": {
+    "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab4\\Lab4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab2\\Lab2.csproj",
-        "projectName": "Lab2",
-        "projectPath": "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab2\\Lab2.csproj",
+        "projectUniqueName": "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab4\\Lab4.csproj",
+        "projectName": "Lab4",
+        "projectPath": "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab4\\Lab4.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab2\\obj\\",
+        "outputPath": "E:\\Навчання\\ГІ\\DPGI\\Lab2\\Lab4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
