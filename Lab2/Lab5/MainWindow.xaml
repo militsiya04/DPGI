@@ -1,0 +1,66 @@
+﻿<Window x:Class="Lab5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab5"
+        mc:Ignorable="d"
+        Title="Lab5" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="Products">
+            <DataGrid x:Name="dataGrid1" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Article " Binding="{Binding Article}" />
+                    <DataGridTextColumn Header="UnitCode " Binding="{Binding UnitCode}" />
+                    <DataGridTextColumn Header="Quantity " Binding="{Binding Quantity}" />
+                    <DataGridTextColumn Header="Price " Binding="{Binding Price}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </TabItem>
+        <TabItem Header="Units Of Measurement ">
+            <DataGrid x:Name="dataGrid2" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Unit Code " Binding="{Binding UnitCode }" />
+                    <DataGridTextColumn Header="Unit Name " Binding="{Binding UnitName }" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </TabItem>
+        <TabItem Header="Product Info">
+            
+                <DataGrid x:Name="dataGridProductsInfo" AutoGenerateColumns="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Product Info " Binding="{Binding ProductInfo }" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+        </TabItem>
+        
+        <TabItem Header="Price More">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Margin="0 0 20 0">Введіть ціну </Label>
+                    <TextBox Margin="0 0 20 0" Width="100" Name="priceMoreTextBox"></TextBox>
+                    <Button Width="100" Click="PriceMore_Click">OK</Button>
+                </StackPanel>
+                <DataGrid x:Name="dataGridPriceMore" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Article " Binding="{Binding Article}" />
+                        <DataGridTextColumn Header="UnitCode " Binding="{Binding UnitCode}" />
+                        <DataGridTextColumn Header="Quantity " Binding="{Binding Quantity}" />
+                        <DataGridTextColumn Header="Price " Binding="{Binding Price}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+
+        </TabItem>
+        
+        <TabItem Header="Product Info">
+            
+            <DataGrid x:Name="dataGridMinMax" >
+            </DataGrid>
+
+        </TabItem>
+        </TabControl>
+
+</Window>

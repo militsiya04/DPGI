@@ -13,7 +13,6 @@ public class AdoAssistant
     public DataTable TableLoad()
     {
         DataTable dt = new DataTable();
-
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             string query = "SELECT * FROM products";
